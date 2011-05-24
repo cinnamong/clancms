@@ -4,12 +4,7 @@
 ============================================================================================
 
 
-This is a quick guide on how to get set up with Clan CMS. Please feel free to contact us through the
-Xcel Gaming forums for additional support.
 
-Thanks,
-Xcel Gaming
-http://xcelgaming.com
 
 -----REQUIREMENTS-----
 

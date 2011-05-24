@@ -394,12 +394,28 @@
 			<table id="players">
 				<thead>
 					<tr>
-						<th width="25%">Username</th>
-						<th width="25%">Player</th>
-						<th width="13%">Kills</th>
-						<th width="13%">Deaths</th>
-						<th width="14%">K/D Ratio</th>
-						<th width="10%">Actions</th>
+						<th width="5%">Username</th>
+						<th width="5%">Player</th>
+						<th width="3%">PA</th>
+						<th width="3%">AB</th>
+						<th width="3%">H</th>
+						<th width="3%">1B</th>
+						<th width="3%">2B</th>
+						<th width="3%">3B</th>
+						<th width="3%">HR</th>
+						<th width="3%">RBI</th>
+						<th width="3%">Sac</th>
+						<th width="5%">AVG</th>
+						<th width="5%">OBP</th>
+						<th width="5%">SLG</th>
+						<th width="3%">SO</th>
+						<th width="3%">BB</th>
+						<th width="3%">SOL</th>
+						<th width="3%">SOS</th>
+						<th width="3%">HP</th>
+						<th width="3%">OBE</th>
+						<th width="3%">SB</th>
+						<th width="5%">Actions</th>
 					</tr>
 				</thead>
 			
