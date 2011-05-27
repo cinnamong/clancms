@@ -474,8 +474,21 @@ class Matches extends CI_Controller {
 		
 		// Retrieve our forms
 		$update_match = $this->input->post('update_match');
-		$kills = $this->input->post('kills');
-		$deaths = $this->input->post('deaths');
+		$player_pa = $this->input->post('player_pa');
+		//$player_hits = $this->input->post('player_hits');
+		$player_1b = $this->input->post('player_1b');
+		$player_2b = $this->input->post('player_2b');
+		$player_3b = $this->input->post('player_3b');
+		$player_hr = $this->input->post('player_hr');
+		$player_rbi = $this->input->post('player_rbi');
+		$player_sac = $this->input->post('player_sac');
+		$player_bb = $this->input->post('player_bb');
+		$player_sol = $this->input->post('player_sol');
+		$player_sos = $this->input->post('player_sos');
+		$player_hp = $this->input->post('player_hp');
+		$player_obe = $this->input->post('player_obe');
+		$player_sb = $this->input->post('player_sb');
+		
 		
 		// Check it update match has been posted
 		if($update_match)
@@ -511,14 +524,14 @@ class Matches extends CI_Controller {
 			$this->form_validation->set_rules('comments', 'Comments', 'trim|required');
 			
 			// Check if kills exist
-			if($kills)
+			if($player_pa)
 			{
 				// Kills exist, loop through each player
-				foreach($kills as $player_id => $value)
+				foreach($player_pa as $player_id => $value)
 				{
 					// Set form validation rules for each member
-					$this->form_validation->set_rules('kills[' . $player_id . ']', 'Kills', 'trim');
-					$this->form_validation->set_rules('deaths[' . $player_id . ']', 'Deaths', 'trim');
+					$this->form_validation->set_rules('player_pa[' . $player_id . ']', 'pa', 'trim');
+					$this->form_validation->set_rules('player_1b[' . $player_id . ']', '1b', 'trim');
 				}
 			}
 			
@@ -582,15 +595,27 @@ class Matches extends CI_Controller {
 				$this->matches->update_match($match->match_id, $data);
 				
 				// Check if kills exist
-				if($kills)
+				if($player_pa)
 				{
 					// Kills exist, loop through each player
-					foreach($kills as $player_id => $value)
+					foreach($player_pa as $player_id => $value)
 					{
 						// Set up the data
 						$data = array (
-							'player_kills'	=> $kills[$player_id],
-							'player_deaths'	=> $deaths[$player_id]
+							'player_pa'	=> $player_pa[$player_id],
+							'player_1b'	=> $player_1b[$player_id],
+							'player_2b'	=> $player_2b[$player_id],
+							'player_3b'	=> $player_3b[$player_id],
+							'player_hr'	=> $player_hr[$player_id],
+							'player_rbi'	=> $player_rbi[$player_id],
+							'player_sac'	=> $player_sac[$player_id],
+							'player_bb'	=> $player_bb[$player_id],
+							'player_sol'	=> $player_sol[$player_id],
+							'player_sos'	=> $player_sos[$player_id],
+							'player_hp'	=> $player_hp[$player_id],
+							'player_obe'	=> $player_obe[$player_id],
+							'player_sb'	=> $player_sb[$player_id]
+							
 						);
 			
 						// Update the match player in the database
@@ -669,17 +694,27 @@ class Matches extends CI_Controller {
 				}
 				
 				// Check if player deaths equals 0
-				if($player->player_deaths == 0)
-				{
-					// Player deaths equals 0, format kills & deaths, assign player kd
-					$player->kd = number_format(($player->player_kills / 1), 2, '.', '');
-				}
-				else
-				{
+
 					// Player deaths doesn't equal 0, format kills & deaths, assign player kd
-					$player->kd = number_format(($player->player_kills / $player->player_deaths), 2, '.', '');
-				}
-			}
+					$player->player_ab = $player->player_pa - $player->player_bb - $player->player_sac - $player->player_player_hp;
+					
+					//Player total hits
+					$player->player_hits = $player->player_1b + $player->player_2b + $player->player_3b + $player->player_hr;
+					
+					//Player total avg
+				
+					$player->player_avg = number_format(($player->player_hits / $player->player_ab), 3, '.', '');
+					
+					
+					//player total obp
+					$player->player_obp = number_format((($player->player_hits + $player->player_bb + $player->player_hp ) / ($player->player_ab + $player->player_bb + $player->player_bp + $player->player_sac)), 3, '.', '');
+					//player total slg
+					$player->player_slg = number_format((($player->player_1b + ($player->player_2b * 2) + ($player->player_3b * 3) + ($player->player_hr * 4)) / ($player->player_ab)), 3, '.', '');
+					//player total SO
+					
+					$player->player_so = $player->player_sol + $player->player->sos;
+					
+					}
 		}
 		
 		// Retrieve the members
@@ -839,8 +874,19 @@ class Matches extends CI_Controller {
 		// Retrieve the forms
 		$match_id = $this->input->post('match_id');
 		$member_id = $this->input->post('member_id');
-		$kills = $this->input->post('member_kills');
-		$deaths = $this->input->post('member_deaths');
+		$player_pa = $this->input->post('player_pa');
+		$player_1b = $this->input->post('player_1b');
+		$player_2b = $this->input->post('player_2b');
+		$player_3b = $this->input->post('player_3b');
+		$player_hr = $this->input->post('player_hr');
+		$player_rbi = $this->input->post('player_rbi');
+		$player_sac = $this->input->post('player_sac');
+		$player_bb = $this->input->post('player_bb');
+		$player_sol = $this->input->post('player_sol');
+		$player_sos = $this->input->post('player_sos');
+		$player_hp = $this->input->post('player_hp');
+		$player_obe = $this->input->post('player_obe');
+		$player_sb = $this->input->post('player_sb');
 		
 		// Retrieve the match
 		if(!$match = $this->matches->get_match(array('match_id' => $match_id)))
@@ -860,8 +906,19 @@ class Matches extends CI_Controller {
 		$data = array (
 			'match_id'		=> $match->match_id,
 			'member_id'		=> $member->member_id,
-			'player_kills'	=> $kills[$member_id],
-			'player_deaths'	=> $deaths[$member_id]
+			'player_pa'	=> $player_pa[$member_id],
+			'player_1b'	=> $player_1b[$member_id],
+			'player_2b'	=> $player_2b[$member_id],
+			'player_3b'	=> $player_3b[$member_id],
+			'player_hr'	=> $player_hr[$member_id],
+			'player_rbi'	=> $player_rbi[$member_id],
+			'player_sac'	=> $player_sac[$member_id],
+			'player_bb'	=> $player_bb[$member_id],
+			'player_sol'	=> $player_sol[$member_id],
+			'player_sos'	=> $player_sos[$member_id],
+			'player_hp'	=> $player_hp[$member_id],
+			'player_obe'	=> $player_obe[$member_id],
+			'player_sb'	=> $player_sb[$member_id]
 		);
 			
 		// Insert the match player into the database

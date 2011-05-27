@@ -427,21 +427,117 @@
 							<td><?php echo br(); ?><?php if($player->member_title): echo $player->member_title; else: echo $player->user_name; endif; ?><?php echo br(2); ?></td>
 							<td><?php
 									$data = array(
-										'name'		=> 'kills[' . $player->player_id . ']',
-										'size'		=> '2',
+										'name'		=> 'player_pa[' . $player->player_id . ']',
+										'size'		=> '1',
 										'id'		=> $player->player_id
 									);
 
-									echo form_input($data, set_value('kills[' . $player->player_id . ']', $player->player_kills), 'onkeypress="return integer(event)"'); ?></td>
+									echo form_input($data, set_value('player_pa[' . $player->player_id . ']', $player->player_pa), 'onkeypress="return integer(event)"'); ?></td>
+							<td id="playerab_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->player_ab; ?><?php echo br(2); ?></td>
+							<td id="playerhits_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->player_hits; ?><?php echo br(2); ?></td>
 							<td><?php
-									$data = array(
-										'name'		=> 'deaths[' . $player->player_id . ']',
-										'size'		=> '2',
-										'id'		=> $player->player_id
-									);
+							$data = array(
+								'name'		=> 'player_1b[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
 
-									echo form_input($data, set_value('deaths[' . $player->player_id . ']', $player->player_deaths), 'onkeypress="return integer(event)"'); ?></td>
-							<td id="playerkd_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->kd; ?><?php echo br(2); ?></td>
+							echo form_input($data, set_value('player_1b[' . $player->player_id . ']', $player->player_1b), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_2b[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_2b[' . $player->player_id . ']', $player->player_2b), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_3b[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_3b[' . $player->player_id . ']', $player->player_3b), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_hr[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_hr[' . $player->player_id . ']', $player->player_hr), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_rbi[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_rbi[' . $player->player_id . ']', $player->player_rbi), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sac[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_sac[' . $player->player_id . ']', $player->player_sac), 'onkeypress="return integer(event)"'); ?></td>
+							<td id="playeravg_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->player_avg; ?><?php echo br(2); ?></td>
+							<td id="playerobp_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->player_obp; ?><?php echo br(2); ?></td>
+							<td id="playerslg_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->player_slg; ?><?php echo br(2); ?></td>
+							<td id="playerso_<?php echo $player->player_id; ?>"><?php echo br(); ?><?php echo $player->player_so; ?><?php echo br(2); ?></td>
+							
+							<td><?php
+							$data = array(
+								'name'		=> 'player_bb[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_bb[' . $player->player_id . ']', $player->player_bb), 'onkeypress="return integer(event)"'); ?></td>
+							
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sol[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_sol[' . $player->player_id . ']', $player->player_sol), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sos[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_sos[' . $player->player_id . ']', $player->player_sos), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_hp[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_hp[' . $player->player_id . ']', $player->player_hp), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_obe[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_obe[' . $player->player_id . ']', $player->player_obe), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sb[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_sb[' . $player->player_id . ']', $player->player_sb), 'onkeypress="return integer(event)"'); ?></td>
+							
 							<td><?php echo anchor(ADMINCP . 'matches/delete_player/' . $player->player_id, img(array('src' => ADMINCP_URL . 'images/delete.png', 'alt' => 'Delete')), array('title' => 'Delete', 'onclick' => "return deleteConfirm();")); ?></td>
 						</tr>
 						<?php endforeach; ?>
@@ -481,12 +577,28 @@
 			<table>
 				<thead>
 					<tr>
-						<th width="25%">Username</th>
-						<th width="25%">Player</th>
-						<th width="13%">Kills</th>
-						<th width="13%">Deaths</th>
-						<th width="14%">K/D Ratio</th>
-						<th width="10%">Actions</th>
+						<th width="5%">Username</th>
+						<th width="5%">Player</th>
+						<th width="3%">PA</th>
+						<th width="3%">AB</th>
+						<th width="3%">H</th>
+						<th width="3%">1B</th>
+						<th width="3%">2B</th>
+						<th width="3%">3B</th>
+						<th width="3%">HR</th>
+						<th width="3%">RBI</th>
+						<th width="3%">Sac</th>
+						<th width="5%">AVG</th>
+						<th width="5%">OBP</th>
+						<th width="5%">SLG</th>
+						<th width="3%">SO</th>
+						<th width="3%">BB</th>
+						<th width="3%">SOL</th>
+						<th width="3%">SOS</th>
+						<th width="3%">HP</th>
+						<th width="3%">OBE</th>
+						<th width="3%">SB</th>
+						<th width="5%">Actions</th>
 					</tr>
 				</thead>
 			
@@ -501,21 +613,117 @@
 							<td><?php echo br(); ?><?php if($member->member_title): echo $member->member_title; else: echo $member->user_name; endif; ?><?php echo br(2); ?></td>
 							<td><?php
 									$data = array(
-										'name'		=> 'member_kills[' . $member->member_id . ']',
-										'size'		=> '2',
+										'name'		=> 'player_pa[' . $member->member_id . ']',
+										'size'		=> '1',
 										'id'		=> $member->member_id
 									);
 
-									echo form_input($data, set_value('member_kills[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+									echo form_input($data, set_value('player_pa[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td id="memberab_<?php echo $member->member_id; ?>"><?php echo br(); ?>-<?php echo br(2); ?></td>
+							<td id="memberhits_<?php echo $member->member_id; ?>"><?php echo br(); ?><?php echo $member->hits; ?>-<?php echo br(2); ?></td>
+							
 							<td><?php
-									$data = array(
-										'name'		=> 'member_deaths[' . $member->member_id . ']',
-										'size'		=> '2',
-										'id'		=> $member->member_id
-									);
+							$data = array(
+								'name'		=> 'player_1b[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
 
-									echo form_input($data, set_value('member_deaths[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
-							<td id="memberkd_<?php echo $member->member_id; ?>"><?php echo br(); ?>-<?php echo br(2); ?></td>
+							echo form_input($data, set_value('player_1b[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_2b[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_2b[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_3b[' . $member->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_3b[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_hr[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_hr[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_rbi[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_rbi[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sac[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_sac[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td id="memberavg_<?php echo $member->member_id; ?>"><?php echo br(); ?>-<?php echo br(2); ?></td>
+							<td id="memberobp_<?php echo $member->member_id; ?>"><?php echo br(); ?>-<?php echo br(2); ?></td>
+							<td id="memberslg_<?php echo $member->member_id; ?>"><?php echo br(); ?>-<?php echo br(2); ?></td>
+							<td id="memberso_<?php echo $member->member_id; ?>"><?php echo br(); ?>-<?php echo br(2); ?></td>
+							
+							<td><?php
+							$data = array(
+								'name'		=> 'player_bb[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_bb[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sol[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_sol[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sos[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_sos[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_hp[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_hp[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_obe[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_obe[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_sb[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_sb[' . $member->player_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
 							<td><input type="image" name="add_player" src="<?php echo ADMINCP_URL . 'images/add.png'; ?>" title="Add" alt="Add" /></td>
 						</tr>
 						<?php echo form_close(); ?>
