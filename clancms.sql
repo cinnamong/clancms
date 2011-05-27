@@ -2,9 +2,9 @@
 -- version 3.3.9
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:3306
--- Generation Time: May 23, 2011 at 12:27 PM
--- Server version: 5.1.36
+-- Host: localhost
+-- Generation Time: May 26, 2011 at 11:51 PM
+-- Server version: 5.5.8
 -- PHP Version: 5.2.11
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
@@ -228,15 +228,35 @@ CREATE TABLE IF NOT EXISTS `clancms_match_players` (
   `player_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `match_id` bigint(20) NOT NULL DEFAULT '0',
   `member_id` bigint(20) NOT NULL DEFAULT '0',
-  `player_kills` int(10) NOT NULL DEFAULT '0',
-  `player_deaths` int(10) NOT NULL DEFAULT '0',
+  `player_pa` int(10) DEFAULT '0',
+  `player_1b` int(10) DEFAULT '0',
+  `player_2b` int(10) DEFAULT NULL,
+  `player_3b` int(10) DEFAULT NULL,
+  `player_hr` int(10) DEFAULT NULL,
+  `player_rbi` int(10) DEFAULT NULL,
+  `player_r` int(10) DEFAULT NULL,
+  `player_sac` int(10) DEFAULT NULL,
+  `player_bb` int(10) DEFAULT NULL,
+  `player_sol` int(10) DEFAULT NULL,
+  `player_sos` int(10) DEFAULT NULL,
+  `player_hp` int(10) DEFAULT NULL,
+  `player_obe` int(10) DEFAULT NULL,
+  `player_sb` int(10) DEFAULT NULL,
   PRIMARY KEY (`player_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `clancms_match_players`
 --
 
+INSERT INTO `clancms_match_players` (`player_id`, `match_id`, `member_id`, `player_pa`, `player_1b`, `player_2b`, `player_3b`, `player_hr`, `player_rbi`, `player_r`, `player_sac`, `player_bb`, `player_sol`, `player_sos`, `player_hp`, `player_obe`, `player_sb`) VALUES
+(1, 1, 1, 3, 1, 0, 0, 0, 1, NULL, 0, 1, 0, 0, 0, 0, 0),
+(2, 8, 1, 2, 0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0),
+(3, 7, 1, 3, 1, 0, 0, 0, 1, NULL, 0, 0, 0, 0, 0, 0, 0),
+(4, 6, 1, 3, 1, 0, 0, 0, 0, NULL, 0, 0, 1, 0, 1, 0, 0),
+(5, 5, 1, 4, 2, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 0),
+(6, 4, 1, 3, 0, 0, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 3, 1, 4, 1, 0, NULL, 0, 2, 0, 0, 1, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -336,7 +356,7 @@ CREATE TABLE IF NOT EXISTS `clancms_sessions` (
 --
 
 INSERT INTO `clancms_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('91d8473260de74041d248569e91b1b5d', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.0) AppleWebKit/534.30 (K', 1306203619, 'a:5:{s:8:"previous";s:22:"admincp/widgets/browse";s:7:"current";s:30:"admincp/widgets/update/matches";s:7:"user_id";s:1:"1";s:8:"username";s:11:"Hodong kwak";s:8:"password";s:40:"fe86a86bdb303312be425fd202c08ba56e79d9b5";}');
+('e858b8e17604af2cee2c59a0eb804baa', '127.0.0.1', 'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/534.24 (K', 1306504140, 'a:5:{s:8:"previous";s:7:"matches";s:7:"current";s:31:"matches/view/1-Default-vs-Twins";s:7:"user_id";s:1:"1";s:8:"username";s:5:"admin";s:8:"password";s:40:"fe86a86bdb303312be425fd202c08ba56e79d9b5";}');
 
 -- --------------------------------------------------------
 
@@ -457,14 +477,25 @@ CREATE TABLE IF NOT EXISTS `clancms_squad_members` (
   `member_role` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `member_priority` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`member_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `clancms_squad_members`
 --
 
 INSERT INTO `clancms_squad_members` (`member_id`, `squad_id`, `user_id`, `member_title`, `member_role`, `member_priority`) VALUES
-(1, 1, 1, '곽호동', 'C', 1);
+(1, 1, 1, '곽호동', 'C', 1),
+(2, 1, 5, '김강', 'P, 3B', 2),
+(3, 1, 6, '심형준', 'CF', 3),
+(4, 1, 7, '이재학', 'SS, P', 4),
+(5, 1, 9, '이종서', '2B, DH', 5),
+(6, 1, 10, '김광식', '3B', 6),
+(7, 1, 11, '김경현', 'RF', 7),
+(8, 1, 12, '박노아', 'RF', 8),
+(9, 1, 13, '홍승표', 'LF', 9),
+(10, 1, 14, '임사이몬', '2B', 10),
+(11, 1, 16, '이일섭', '1B', 11),
+(12, 1, 17, '김영호', 'LF', 12);
 
 -- --------------------------------------------------------
 
@@ -494,7 +525,7 @@ CREATE TABLE IF NOT EXISTS `clancms_users` (
 --
 
 INSERT INTO `clancms_users` (`user_id`, `group_id`, `user_notes`, `user_name`, `user_password`, `user_salt`, `user_email`, `user_timezone`, `user_daylight_savings`, `user_ipaddress`, `user_joined`, `user_avatar`, `user_activation`) VALUES
-(1, 2, '', 'Hodong kwak', 'fe86a86bdb303312be425fd202c08ba56e79d9b5', 'v6bueoyjjuPmWDiUc0TYTOLaSMME0YkM', 'hodong.kwak@gmail.com', 'UM8', 2, '127.0.0.1', '2011-05-23 18:02:21', '2e20991dc8ab0c9df70fe6b8eb81c7ec.gif', '1'),
+(1, 2, 'GO THMC!!', 'admin', 'fe86a86bdb303312be425fd202c08ba56e79d9b5', 'v6bueoyjjuPmWDiUc0TYTOLaSMME0YkM', 'hodong.kwak@gmail.com', 'UM8', 2, '127.0.0.1', '2011-05-23 18:02:21', '2e20991dc8ab0c9df70fe6b8eb81c7ec.gif', '1'),
 (2, 3, '', 'chris_moon', 'f7cdcdba8c585ea50cd224a26865985642e9db3b', 'OnTwFnWPyAgnUuu4Nj7BgE8VqbikYQWO', 'bluem4j@gmail.com', 'UM8', 2, '127.0.0.1', '2011-05-23 12:08:25', '', '1'),
 (3, 3, '', 'danny_kwon', '0ab4fa18519b05e39eb8fb79dbc6dc1f1a274655', 'dNPza0M6gquYzhTLOWxhc2ap1itYRSu0', 'phigh71@hotmail.com', 'UM8', 2, '127.0.0.1', '2011-05-23 12:09:04', '', '1'),
 (4, 3, '', 'felix_lee', '77dc0bbdf0fe7a6f51cc2c49b8683943e3f96128', 'B3USnIa35w8B2ZfHbH6j7rydNWLJ9iKn', 'felixylee@gmail.com', 'UM8', 2, '127.0.0.1', '2011-05-23 12:09:34', '', '1'),

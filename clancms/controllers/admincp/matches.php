@@ -481,6 +481,7 @@ class Matches extends CI_Controller {
 		$player_3b = $this->input->post('player_3b');
 		$player_hr = $this->input->post('player_hr');
 		$player_rbi = $this->input->post('player_rbi');
+		$player_r = $this->input->post('player_r');
 		$player_sac = $this->input->post('player_sac');
 		$player_bb = $this->input->post('player_bb');
 		$player_sol = $this->input->post('player_sol');
@@ -608,6 +609,7 @@ class Matches extends CI_Controller {
 							'player_3b'	=> $player_3b[$player_id],
 							'player_hr'	=> $player_hr[$player_id],
 							'player_rbi'	=> $player_rbi[$player_id],
+							'player_r'	=> $player_r[$player_id],
 							'player_sac'	=> $player_sac[$player_id],
 							'player_bb'	=> $player_bb[$player_id],
 							'player_sol'	=> $player_sol[$player_id],
@@ -880,6 +882,7 @@ class Matches extends CI_Controller {
 		$player_3b = $this->input->post('player_3b');
 		$player_hr = $this->input->post('player_hr');
 		$player_rbi = $this->input->post('player_rbi');
+		$player_r = $this->input->post('player_r');
 		$player_sac = $this->input->post('player_sac');
 		$player_bb = $this->input->post('player_bb');
 		$player_sol = $this->input->post('player_sol');
@@ -912,6 +915,7 @@ class Matches extends CI_Controller {
 			'player_3b'	=> $player_3b[$member_id],
 			'player_hr'	=> $player_hr[$member_id],
 			'player_rbi'	=> $player_rbi[$member_id],
+			'player_r'	=> $player_r[$member_id],
 			'player_sac'	=> $player_sac[$member_id],
 			'player_bb'	=> $player_bb[$member_id],
 			'player_sol'	=> $player_sol[$member_id],

@@ -404,6 +404,7 @@
 						<th width="3%">3B</th>
 						<th width="3%">HR</th>
 						<th width="3%">RBI</th>
+						<th width="3%">RUN</th>
 						<th width="3%">Sac</th>
 						<th width="5%">AVG</th>
 						<th width="5%">OBP</th>
@@ -475,6 +476,15 @@
 							);
 
 							echo form_input($data, set_value('player_rbi[' . $player->player_id . ']', $player->player_rbi), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_r[' . $player->player_id . ']',
+								'size'		=> '1',
+								'id'		=> $player->player_id
+							);
+
+							echo form_input($data, set_value('player_r[' . $player->player_id . ']', $player->player_r), 'onkeypress="return integer(event)"'); ?></td>
+							
 							<td><?php
 							$data = array(
 								'name'		=> 'player_sac[' . $player->player_id . ']',
@@ -587,6 +597,7 @@
 						<th width="3%">3B</th>
 						<th width="3%">HR</th>
 						<th width="3%">RBI</th>
+						<th width="3%">RUN</th>
 						<th width="3%">Sac</th>
 						<th width="5%">AVG</th>
 						<th width="5%">OBP</th>
@@ -662,6 +673,14 @@
 							);
 
 							echo form_input($data, set_value('player_rbi[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
+							<td><?php
+							$data = array(
+								'name'		=> 'player_r[' . $member->member_id . ']',
+								'size'		=> '1',
+								'id'		=> $member->member_id
+							);
+
+							echo form_input($data, set_value('player_r[' . $member->member_id . ']', ''), 'onkeypress="return integer(event)"'); ?></td>
 							<td><?php
 							$data = array(
 								'name'		=> 'player_sac[' . $member->member_id . ']',
